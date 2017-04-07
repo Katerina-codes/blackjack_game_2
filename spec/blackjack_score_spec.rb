@@ -1,6 +1,7 @@
 require 'blackjack_score'
 
 describe BlackjackScore do
+  subject(:blackjack) { described_class.new }
 
   it "returns 0 if hand is A" do
     blackjack_score = BlackjackScore.new
@@ -14,12 +15,12 @@ describe BlackjackScore do
 
   it "returns 1 if hand is AC" do
     blackjack_score = BlackjackScore.new
-    expect(blackjack_score.get_hand_value(["AC"])).to eq(1)
+    expect(blackjack_score.get_hand_value(["AC"])).to eq(11)
   end
 
   it "returns 1 if hand is AS" do
     blackjack_score = BlackjackScore.new
-    expect(blackjack_score.get_hand_value(["AS"])).to eq(1)
+    expect(blackjack_score.get_hand_value(["AS"])).to eq(11)
   end
 
   it "returns 2 if hand is 2C" do
@@ -55,6 +56,23 @@ describe BlackjackScore do
   it "returns 5 is hand is ['2H', '3D']" do
     blackjack_score = BlackjackScore.new
     expect(blackjack_score.get_hand_value(["2H", "3D"])).to eq(5)
+  end
+
+  it "returns 5 is hand is ['2H', '3D']" do
+    blackjack_score = BlackjackScore.new
+    expect(blackjack_score.get_hand_value(["2H", "3D"])).to eq(5)
+  end
+
+  it "returns 14 if hand is ['4C', 'QS']" do
+    expect(blackjack.get_hand_value(['4C', 'QS'])).to eq 14
+  end
+
+  it "returns 21 if hand is ['AS', KD]" do
+    expect(blackjack.get_hand_value(['AS', 'KD'])).to eq 21
+  end
+
+  it "returns  if hand is ['2D','AS', 'KD']" do
+    expect(blackjack.get_hand_value(['2D','AS', 'KD'])).to eq 13
   end
 
 
