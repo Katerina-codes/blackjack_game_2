@@ -4,7 +4,11 @@ class BlackjackScore
     if hand.length < 2
       "Enter a valid card"
     else
-      1
+      if hand[0] == 'A'
+        1
+      else
+        2
+      end
     end
   end
 
