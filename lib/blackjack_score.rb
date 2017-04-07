@@ -6,7 +6,7 @@ class BlackjackScore
     else
       if hand[0] == 'A'
         1
-      elsif hand[0] == 'J'
+      elsif hand[0] == 'J' || hand[0] == 'Q'
         10
       else
         hand.to_i
