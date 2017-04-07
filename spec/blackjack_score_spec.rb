@@ -12,4 +12,9 @@ describe BlackjackScore do
     expect(blackjack_score.get_card_values("C")).to eq("Enter a valid card")
   end
 
+  it "returns 1 if card is AC" do
+    blackjack_score = BlackjackScore.new
+    expect(blackjack_score.get_card_values("AC")).to eq(1)
+  end
+
 end
