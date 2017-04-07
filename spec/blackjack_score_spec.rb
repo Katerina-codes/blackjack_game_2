@@ -27,9 +27,9 @@ describe BlackjackScore do
     expect(blackjack_score.get_card_values("2C")).to eq(2)
   end
 
-  it "returns 2 if hand is 2C" do
+  it "returns 3 if hand is 3D" do
     blackjack_score = BlackjackScore.new
-    expect(blackjack_score.get_card_values("2C")).to eq(2)
+    expect(blackjack_score.get_card_values("3D")).to eq(3)
   end
 
 end

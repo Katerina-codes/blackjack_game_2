@@ -6,8 +6,10 @@ class BlackjackScore
     else
       if hand[0] == 'A'
         1
-      else
+      elsif hand[0] == '2'
         2
+      else
+        3
       end
     end
   end
