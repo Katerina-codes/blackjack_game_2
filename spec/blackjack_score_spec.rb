@@ -47,5 +47,10 @@ describe BlackjackScore do
     expect(blackjack_score.get_card_values("QH")).to eq(10)
   end
 
+  it "returns 10 if hand is KD" do
+    blackjack_score = BlackjackScore.new
+    expect(blackjack_score.get_card_values("KD")).to eq(10)
+  end
+
 
 end

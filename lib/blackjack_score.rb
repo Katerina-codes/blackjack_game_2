@@ -3,15 +3,17 @@ class BlackjackScore
   def get_card_values(hand)
     if hand.length < 2
       "Enter a valid card"
-    else
-      if hand[0] == 'A'
-        1
-      elsif hand[0] == 'J' || hand[0] == 'Q'
-        10
+    elsif hand[0].to_i == 0
+      hash = {
+        'A' => 1,
+        'J' => 10,
+        'Q' => 10,
+        'K' => 10
+      }
+      hash[hand[0]]
       else
         hand.to_i
       end
     end
-  end
 
 end
