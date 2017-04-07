@@ -4,12 +4,12 @@ describe BlackjackScore do
 
   it "returns 0 if hand is A" do
     blackjack_score = BlackjackScore.new
-    expect(blackjack_score.get_hand_value("A")).to eq("Enter a valid card")
+    expect(blackjack_score.get_hand_value(["A"])).to eq("Enter a valid card")
   end
 
   it "returns 0 if hand is C" do
     blackjack_score = BlackjackScore.new
-    expect(blackjack_score.get_hand_value("C")).to eq("Enter a valid card")
+    expect(blackjack_score.get_hand_value(["C"])).to eq("Enter a valid card")
   end
 
   it "returns 1 if hand is AC" do
@@ -50,6 +50,11 @@ describe BlackjackScore do
   it "returns 10 if hand is KD" do
     blackjack_score = BlackjackScore.new
     expect(blackjack_score.get_hand_value(["KD"])).to eq(10)
+  end
+
+  it "returns 5 is hand is ['2H', '3D']" do
+    blackjack_score = BlackjackScore.new
+    expect(blackjack_score.get_hand_value(["2H", "3D"])).to eq(5)
   end
 
 

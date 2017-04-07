@@ -1,7 +1,12 @@
 class BlackjackScore
 
-  def get_hand_value(hand)
-    get_card_value(hand[0])
+  def get_hand_value(hand)   # 2H, 3D
+    card_values = []
+    hand.each do |card|             # 2h
+      value = get_card_value(card)
+      card_values.push(value)
+      end
+    card_values.reduce(:+)
   end
 
 
