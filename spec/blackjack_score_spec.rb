@@ -5,12 +5,12 @@ describe BlackjackScore do
 
   it "returns 0 if hand is A" do
     blackjack_score = BlackjackScore.new
-    expect(blackjack_score.get_hand_value(["A"])).to eq("Enter a valid card")
+    expect(blackjack_score.get_hand_value(["A"])).to eq(-1)
   end
 
   it "returns 0 if hand is C" do
     blackjack_score = BlackjackScore.new
-    expect(blackjack_score.get_hand_value(["C"])).to eq("Enter a valid card")
+    expect(blackjack_score.get_hand_value(["C"])).to eq(-1)
   end
 
   it "returns 1 if hand is AC" do
@@ -64,15 +64,19 @@ describe BlackjackScore do
   end
 
   it "returns 14 if hand is ['4C', 'QS']" do
-    expect(blackjack.get_hand_value(['4C', 'QS'])).to eq 14
+    expect(blackjack.get_hand_value(['4C', 'QS'])).to eq(14)
   end
 
   it "returns 21 if hand is ['AS', KD]" do
-    expect(blackjack.get_hand_value(['AS', 'KD'])).to eq 21
+    expect(blackjack.get_hand_value(['AS', 'KD'])).to eq(21)
   end
 
-  it "returns  if hand is ['2D','AS', 'KD']" do
-    expect(blackjack.get_hand_value(['2D','AS', 'KD'])).to eq 13
+  it "returns 13 if hand is ['2D','AS', 'KD']" do
+    expect(blackjack.get_hand_value(['2D','AS', 'KD'])).to eq(13)
+  end
+
+  it "returns if hand is [AS, AH, 10D]" do
+    expect(blackjack.get_hand_value(['AS', 'AH,', '10D'])).to eq(12)
   end
 
 
