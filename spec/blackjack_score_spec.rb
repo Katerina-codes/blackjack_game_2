@@ -75,9 +75,8 @@ describe BlackjackScore do
     expect(blackjack.get_hand_value(['2D','AS', 'KD'])).to eq(13)
   end
 
-  it "returns if hand is [AS, AH, 10D]" do
+  it "returns 12 if hand is [AS, AH, 10D]" do
     expect(blackjack.get_hand_value(['AS', 'AH,', '10D'])).to eq(12)
   end
-
 
 end
