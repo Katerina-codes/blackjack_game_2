@@ -3,19 +3,19 @@ require 'blackjack_score'
 describe BlackjackScore do
   subject(:blackjack_score) { described_class.new }
 
-  it "returns 0 if hand is A" do
+  it "returns -1 if hand is A" do
     expect(blackjack_score.get_hand_value(["A"])).to eq(-1)
   end
 
-  it "returns 0 if hand is C" do
+  it "returns -1 if hand is C" do
     expect(blackjack_score.get_hand_value(["C"])).to eq(-1)
   end
 
-  it "returns 1 if hand is AC" do
+  it "returns 11 if hand is AC" do
     expect(blackjack_score.get_hand_value(["AC"])).to eq(11)
   end
 
-  it "returns 1 if hand is AS" do
+  it "returns 11 if hand is AS" do
     expect(blackjack_score.get_hand_value(["AS"])).to eq(11)
   end
 
