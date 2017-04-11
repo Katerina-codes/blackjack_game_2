@@ -8,17 +8,12 @@ class BlackjackScore
     end
 
     sum = card_values.reduce(:+)
+
     if sum == -1
       sum
     elsif sum > 21 && card_values.include?(11)
-    value_occurences = get_occurence_number(card_values)
-      until sum < 21
-        if value_occurences > 0
-          sum -= 10
-          value_occurences -= 1
-        end
-      end
-      sum
+      value_occurences = get_occurence_number(card_values)
+      get_final_sum_minus_11(sum, value_occurences)
     else
       sum
     end
@@ -48,4 +43,13 @@ class BlackjackScore
     counts[11]
   end
 
+  def get_final_sum_minus_11(sum, value_occurences)
+    until sum < 21
+      if value_occurences > 0
+        sum -= 10
+        value_occurences -= 1
+      end
+    end
+    final_sum = sum
+  end
 end
