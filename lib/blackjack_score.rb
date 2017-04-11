@@ -1,13 +1,13 @@
 class BlackjackScore
 
   def get_hand_value(hand)
-    card_values = []
+  card_values = []
     hand.each do |card|
       value = get_card_value(card)
       card_values.push(value)
     end
 
-    sum = card_values.reduce(:+)
+  sum = card_values.reduce(:+)
 
     if sum == -1
       sum
@@ -50,7 +50,7 @@ class BlackjackScore
         number_of_occurences -= 1
       end
     end
-    updated_sum = sum
+    sum
   end
 
 end
