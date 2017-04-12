@@ -1,11 +1,14 @@
 class Winner
 
-def find_winner(hand1, hand2)
-  if hand1 == 0
-    "It's a draw!"
-  else
-    "Hand1 is the winner!"
+  def find_winner(hand1, hand2)
+    if hand1 == hand2
+      "It's a draw!"
+    elsif
+       hand1 > hand2
+      "Hand1 is the winner!"
+    else
+      "Hand2 is the winner!"
+    end
   end
-end
 
 end
