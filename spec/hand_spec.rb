@@ -27,5 +27,4 @@ describe Hand do
     expect(hand.is_out?(22)).to eq(true)
   end
 
-
 end
