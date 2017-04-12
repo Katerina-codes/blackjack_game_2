@@ -13,8 +13,6 @@ class Hand
   def is_out?(hand)
     if hand > 21
       true
-    else
-      false
     end
   end
 
