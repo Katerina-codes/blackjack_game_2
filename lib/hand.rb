@@ -11,4 +11,9 @@ class Hand
     end
   end
 
+  def is_out?(hand)
+    false
+  end
+
+
 end

@@ -17,4 +17,9 @@ describe Hand do
     expect(hand.find_winner(0, 1)).to eq("Hand2 is the winner!")
   end
 
+  it "returns false if sum of hand is < 21" do
+    hand = Hand.new
+    expect(hand.is_out?(0)).to eq(false)
+  end
+
 end
