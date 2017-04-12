@@ -22,5 +22,10 @@ describe Hand do
     expect(hand.is_out?(0)).to eq(false)
   end
 
+  it "returns true if sum of hand is > 21" do
+    hand = Hand.new
+    expect(hand.is_out?(22)).to eq(true)
+  end
+
 
 end
