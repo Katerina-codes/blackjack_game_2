@@ -1,4 +1,4 @@
-class Winner
+class Hand
 
   def find_winner(hand1, hand2)
     if hand1 == hand2
