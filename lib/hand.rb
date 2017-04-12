@@ -11,9 +11,7 @@ class Hand
   end
 
   def is_out?(hand)
-    if hand > 21
-      true
-    end
+    hand > 21
   end
 
 end
