@@ -13,4 +13,8 @@ class Dealer
 		@input.gets
 	end
 
+	def give_new_card
+		"1D"
+	end
+
 end
