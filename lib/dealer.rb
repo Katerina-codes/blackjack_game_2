@@ -12,11 +12,10 @@ class Dealer
 
 	def get_hit_or_stop
 	user_input = @input.gets.chomp.downcase
-      until user_input == "hit" || user_input == "stop"
-        puts "Please enter hit or stop: "
-  	    get_hit_or_stop
-      end
-
+    until user_input == "hit" || user_input == "stop"
+      puts "Please enter hit or stop: "
+      get_hit_or_stop
+    end
   end
 
   def determine_next_move
