@@ -16,8 +16,15 @@ describe Dealer do
 		expect(dealer.get_hit_or_stop).to eq("hit")
 	end
 
-	it "deals another card if user enters 'hit'" do
+	it "returns score if user enters 'stop'" do
 		dealer = Dealer.new
-		expect(dealer.give_new_card).to eq("1D")
+		expect(dealer.return_score).to eq("Game over and your score is: ")
 	end
+
+	# it "deals another card if user enters 'hit'" do
+	# 	dealer = Dealer.new
+	# 	expect(dealer.give_new_card).to include("C", "D", "H", "S")
+	# end
+
+
 end
