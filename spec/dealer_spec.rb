@@ -21,9 +21,4 @@ describe Dealer do
 		expect(dealer.return_score(10)).to eq("Game over and your score is: 10")
 	end
 
-	# it "deals another card if user enters 'hit'" do
-	# 	dealer = Dealer.new
-	# 	expect(dealer.give_new_card).to include("C", "D", "H", "S")
-	# end
-
 end

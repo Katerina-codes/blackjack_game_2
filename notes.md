@@ -14,3 +14,9 @@ def dealer_game_flow
  If stop, return the score of the current total of cards.
  If sum of cards > 21 return card is busted and sum of cards.
   end
+
+
+  it "deals another card if user enters 'hit'" do
+		dealer = Dealer.new
+		expect(dealer.give_new_card).to include()
+	end
