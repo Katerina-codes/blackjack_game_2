@@ -49,7 +49,6 @@ class Dealer
 			else
 				p hand += give_new_card
 				hand_value = BlackjackScore.new.get_hand_value(hand)
-				puts "Your hand value is: " + hand_value.to_s
 			end
 		end
 		return_score(hand_value)
