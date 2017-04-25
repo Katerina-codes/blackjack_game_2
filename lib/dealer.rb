@@ -31,20 +31,24 @@ class Dealer
 	def return_score(hand_value)
 		puts "Game over and your score is: " + hand_value.to_s
 	end
-	
+
 	def dealer_game_flow
 		card1 = give_new_card
 		card2 = give_new_card
 		hand = card1 + card2
 		puts hand
 		hand_value = BlackjackScore.new.get_hand_value(hand)
-		puts hand_value
 
-		ask_hit_or_stop
-		until Hand.new.is_out?(hand_value) || get_hit_or_stop == "stop"
-			puts hand += give_new_card
-			puts hand_value = "Your hand value is: " + BlackjackScore.new.get_hand_value(hand).to_s
+		until Hand.new.is_out?(hand_value)
+			puts "Your hand value is: " + hand_value.to_s
 			ask_hit_or_stop
+			if get_hit_or_stop == "stop"
+				return return_score(hand_value)
+			else
+				p hand += give_new_card
+				hand_value = BlackjackScore.new.get_hand_value(hand)
+				puts "Your hand value is: " + hand_value.to_s
+			end
 		end
 		return_score(hand_value)
 	end

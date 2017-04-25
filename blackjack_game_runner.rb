@@ -4,5 +4,4 @@ require_relative 'lib/hand'
 
 
 x = Dealer.new
-x.ask_hit_or_stop
-x.determine_next_move
+x.dealer_game_flow
