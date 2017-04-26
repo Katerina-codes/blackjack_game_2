@@ -17,8 +17,10 @@ describe Dealer do
 	end
 
 	it "returns score if user enters 'stop'" do
-		dealer = Dealer.new
-		expect(dealer.return_score(10)).to eq("Game over and your score is: 10")
+		output = StringIO.new
+		dealer = Dealer.new(output)
+		dealer.return_score(10)
+		expect(output.string).to eq("Game over and your score is: 10\n")
 	end
 
 end
