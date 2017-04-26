@@ -44,7 +44,7 @@ class BlackjackScore
   end
 
   def minus_10_from_sum(sum, number_of_occurences)
-    until sum < 21
+    until sum < 21 || number_of_occurences == 0
       if number_of_occurences > 0
         sum -= 10
         number_of_occurences -= 1

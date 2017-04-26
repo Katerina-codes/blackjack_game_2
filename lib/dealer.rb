@@ -30,7 +30,7 @@ class Dealer
 
 	def return_score(hand_value)
 		score = "Game over and your score is: " + hand_value.to_s
-		puts score  # @output.puts score
+		puts score  # @output.puts SCORE
 		score
 	end
 
@@ -44,7 +44,7 @@ class Dealer
 		until Hand.new.is_out?(hand_value)
 			puts "Your hand value is: " + hand_value.to_s
 			ask_hit_or_stop
-			if get_hit_or_stop == "stop"
+			if get_hit_or_stop == "stop" || hand_value > 21
 				return return_score(hand_value)
 			else
 				p hand += give_new_card
