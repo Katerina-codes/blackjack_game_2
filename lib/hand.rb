@@ -13,3 +13,5 @@ class Hand
 	def is_out?(hand_value)
 		hand_value.to_i > 21
 	end
+
+end
