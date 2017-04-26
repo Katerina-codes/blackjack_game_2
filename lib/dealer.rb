@@ -30,7 +30,7 @@ class Dealer
 
 	def return_score(hand_value)
 		score = "Game over and your score is: " + hand_value.to_s
-		puts score
+		puts score  # @output.puts score
 		score
 	end
 
