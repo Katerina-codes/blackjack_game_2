@@ -12,6 +12,11 @@ class Dealer
 		@output.puts "1 or 2 player?"
 	end
 
+	def get_num_of_players
+		@input.gets.chomp
+		"Please enter 1 or 2"
+	end
+
 	def ask_hit_or_stop
 		@output.puts "Do you want to hit or stop?"
 	end
@@ -37,6 +42,7 @@ class Dealer
 	end
 
 	def dealer_game_flow
+		ask_how_many_players
 		card1 = give_new_card
 		card2 = give_new_card
 		hand = card1 + card2

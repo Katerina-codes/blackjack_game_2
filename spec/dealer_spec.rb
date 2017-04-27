@@ -23,11 +23,18 @@ describe Dealer do
 		expect(output.string).to eq("Game over and your score is: 10\n")
 	end
 
-	it "Displays '1 or 2 player?'" do
+	it "displays '1 or 2 player?'" do
 		output = StringIO.new
 		dealer = Dealer.new(output)
 		dealer.ask_how_many_players
     expect(output.string).to eq("1 or 2 player?\n")
 	end
 
+	it "gets 1 from the user" do
+		output = StringIO.new
+		input = StringIO.new("0")
+    dealer = Dealer.new(output, input)
+		expect(dealer.get_num_of_players).to eq("Please enter 1 or 2")
+	end
+	
 end
