@@ -8,6 +8,10 @@ class Dealer
 		@input = input
 	end
 
+	def ask_how_many_players
+		@output.puts "1 or 2 player?"
+	end
+
 	def ask_hit_or_stop
 		@output.puts "Do you want to hit or stop?"
 	end
