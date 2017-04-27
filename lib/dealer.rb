@@ -17,7 +17,7 @@ class Dealer
 		if num_of_players == 1 || num_of_players == 2
 			num_of_players
 		else
-		"Please enter 1 or 2"
+		@output.puts "Please enter 1 or 2"
 		end
 	end
 
@@ -47,6 +47,7 @@ class Dealer
 
 	def dealer_game_flow
 		ask_how_many_players
+		get_num_of_players
 		card1 = give_new_card
 		card2 = give_new_card
 		hand = card1 + card2

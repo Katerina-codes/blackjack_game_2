@@ -34,7 +34,8 @@ describe Dealer do
 		output = StringIO.new
 		input = StringIO.new("0")
     dealer = Dealer.new(output, input)
-		expect(dealer.get_num_of_players).to eq("Please enter 1 or 2")
+		dealer.get_num_of_players
+		expect(output.string).to eq("Please enter 1 or 2\n")
 	end
 
 	it "gets 1 from the user" do
