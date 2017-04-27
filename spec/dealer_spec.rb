@@ -36,5 +36,12 @@ describe Dealer do
     dealer = Dealer.new(output, input)
 		expect(dealer.get_num_of_players).to eq("Please enter 1 or 2")
 	end
-	
+
+	it "gets 1 from the user" do
+		output = StringIO.new
+		input = StringIO.new("1")
+    dealer = Dealer.new(output, input)
+		expect(dealer.get_num_of_players).to eq(1)
+	end
+
 end

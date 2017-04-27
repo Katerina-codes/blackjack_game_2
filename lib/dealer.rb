@@ -13,8 +13,12 @@ class Dealer
 	end
 
 	def get_num_of_players
-		@input.gets.chomp
+		num_of_players = @input.gets.chomp.to_i
+		if num_of_players == 1 || num_of_players == 2
+			num_of_players
+		else
 		"Please enter 1 or 2"
+		end
 	end
 
 	def ask_hit_or_stop
