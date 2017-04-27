@@ -32,7 +32,7 @@ describe Dealer do
 
 	it "displays an error message if user enters 0" do
 		output = StringIO.new
-		input = StringIO.new("0")
+		input = StringIO.new("0\n1")
     dealer = Dealer.new(output, input)
 		dealer.get_num_of_players
 		expect(output.string).to eq("Please enter 1 or 2\n")

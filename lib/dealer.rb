@@ -14,11 +14,11 @@ class Dealer
 
 	def get_num_of_players
 		num_of_players = @input.gets.chomp.to_i
-		if num_of_players == 1 || num_of_players == 2
-			num_of_players
-		else
-		@output.puts "Please enter 1 or 2"
+		until num_of_players == 1 || num_of_players == 2
+		  @output.puts "Please enter 1 or 2"
+		  num_of_players = @input.gets.chomp.to_i
 		end
+		num_of_players
 	end
 
 	def ask_hit_or_stop
