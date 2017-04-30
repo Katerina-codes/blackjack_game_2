@@ -38,7 +38,6 @@ class Dealer
 		card_values = ("1".."10").to_a + ["J", "Q", "K", "A"]
 		card_type = ["C", "D", "H", "S"]
 		new_card = [card_values.sample + card_type.sample]
-		new_card
 	end
 
 	def return_score(hand_value)
