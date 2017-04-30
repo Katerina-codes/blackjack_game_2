@@ -4,4 +4,6 @@ require_relative 'lib/hand'
 
 
 x = Dealer.new
-x.dealer_game_flow
+hand = x.deal_initial_hand
+hand_value = x.get_hand_value(hand)
+x.dealer_game_flow(hand, hand_value)

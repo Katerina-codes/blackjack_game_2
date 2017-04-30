@@ -44,15 +44,19 @@ class Dealer
 		@output.puts "Game over and your score is: " + hand_value.to_s
 	end
 
-	def dealer_game_flow
+	def deal_initial_hand
 		ask_how_many_players
 		get_num_of_players
 		card1 = give_new_card
 		card2 = give_new_card
 		hand = card1 + card2
-		puts hand
-		hand_value = BlackjackScore.new.get_hand_value(hand)
+  end
 
+  def get_hand_value(hand)
+		BlackjackScore.new.get_hand_value(hand)
+  end
+
+	def dealer_game_flow(hand, hand_value)
 		until Hand.new.is_out?(hand_value)
 			puts "Your hand value is: " + hand_value.to_s
 			ask_hit_or_stop
