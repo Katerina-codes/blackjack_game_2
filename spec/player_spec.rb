@@ -1,6 +1,6 @@
-require 'player_one'
+require 'player'
 
-describe PlayerOne do
+describe Player do
 
  # it "returns two cards for initial hand" do
  #   output = StringIO.new("[1D, 1D]")
