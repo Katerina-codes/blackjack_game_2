@@ -59,18 +59,42 @@ class Dealer
 		"Your hand value is: " + BlackjackScore.new.get_hand_value(hand).to_s
   end
 
-	def dealer_game_flow(hand, hand_value)
+	def get_final_hand_value(hand, hand_value)
 		until Hand.new.is_out?(hand_value)
 			p get_hand_value(hand)
 			ask_hit_or_stop
 			if get_hit_or_stop == "stop" || hand_value.to_i > 21
-				return return_score(hand_value)
+				return hand_value
 			else
 				p hand += give_new_card
 				hand_value = BlackjackScore.new.get_hand_value(hand)
 			end
 		end
-		return_score(hand_value)
+		hand_value
+		# return_score(hand_value)
+	end
+
+	def dealer_game_flow
+		ask_how_many_players
+		if get_num_of_players == 1
+			p player_one_hand = Player.new.get_initial_hand
+			player_one_hand = player_one
+			player_one_hand_value = get_hand_value(player_one_hand)
+      player_one_final_hand = get_final_hand_value(player_one_hand, player_one_hand_value)
+			return_score(player_one_final_hand)
+    else
+			p player_one = Player.new.get_initial_hand
+			p player_two = Player.new.get_initial_hand
+			player_one_hand = player_one
+			player_one_hand_value = get_hand_value(player_one_hand)
+			player_one_final_hand = get_final_hand_value(player_one_hand, player_one_hand_value)
+			return_score(player_one_final_hand)
+
+			player_two_hand = player_two
+			player_two_hand_value = get_hand_value(player_two_hand)
+			player_two_final_hand = get_final_hand_value(player_two_hand, player_two_hand_value)
+			return_score(player_two_final_hand)
+		end
 	end
 
 end
