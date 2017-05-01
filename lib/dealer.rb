@@ -4,6 +4,10 @@ require_relative 'commandlineio'
 
 class Dealer
 
+	def initialize(io = CommandlineIO.new)
+		@io = io
+	end
+
 	def give_new_card
 		card_values = ("1".."10").to_a + ["J", "Q", "K", "A"]
 		card_type = ["C", "D", "H", "S"]
@@ -11,8 +15,8 @@ class Dealer
 	end
 
 	def determine_number_of_players
-		ask_how_many_players
-		get_num_of_players
+		@io.ask_how_many_players
+		@io.get_num_of_players
 	end
 
 	def deal_initial_hand
