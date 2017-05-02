@@ -1,3 +1,5 @@
+require_relative "blackjack_score"
+
 class CommandlineIO
 
   def initialize(output = $stdout, input = $stdin)
@@ -29,6 +31,10 @@ class CommandlineIO
       user_input = @input.gets.chomp.downcase
     end
     user_input
+  end
+
+  def get_hand_value(hand)
+    @output.puts "Your hand value is: " + BlackjackScore.new.get_hand_value(hand).to_s
   end
 
   def return_score(hand_value)

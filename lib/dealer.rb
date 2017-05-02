@@ -25,19 +25,15 @@ class Dealer
 		hand = card1 + card2
   end
 
-  def get_hand_value(hand)
-		"Your hand value is: " + BlackjackScore.new.get_hand_value(hand).to_s
-  end
-
 	def get_final_hand_value(hand, hand_value)
 		until Hand.new.is_out?(hand_value)
-			p get_hand_value(hand)
 			@io.ask_hit_or_stop
 			if @io.get_hit_or_stop == "stop" || hand_value.to_i >= 21
 				return hand_value
 			else
 				p hand += give_new_card
 				hand_value = BlackjackScore.new.get_hand_value(hand)
+				@io.get_hand_value(hand)
 			end
 		end
 		hand_value
@@ -47,17 +43,17 @@ class Dealer
 		@io.ask_how_many_players
 		if @io.get_num_of_players == 1
 			p player_one_hand = Player.new.get_initial_hand
-			player_one_hand_value = get_hand_value(player_one_hand)
+			player_one_hand_value = @io.get_hand_value(player_one_hand)
       player_one_final_hand = get_final_hand_value(player_one_hand, player_one_hand_value)
 			@io.return_score(player_one_final_hand)
     else
 			p player_one_hand = Player.new.get_initial_hand
 			p player_two_hand = Player.new.get_initial_hand
-			player_one_hand_value = get_hand_value(player_one_hand)
+			player_one_hand_value = @io.get_hand_value(player_one_hand)
 			player_one_final_hand = get_final_hand_value(player_one_hand, player_one_hand_value)
 			@io.return_score(player_one_final_hand)
 
-			player_two_hand_value = get_hand_value(player_two_hand)
+			player_two_hand_value = @io.get_hand_value(player_two_hand)
 			player_two_final_hand = get_final_hand_value(player_two_hand, player_two_hand_value)
 			@io.return_score(player_two_final_hand)
 			p Hand.new.find_winner(player_one_final_hand, player_two_final_hand)
