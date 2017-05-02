@@ -38,7 +38,11 @@ class CommandlineIO
   end
 
   def get_hand_value(hand)
-    @output.puts " Your hand value is: " + BlackjackScore.new.get_hand_value(hand).to_s
+    BlackjackScore.new.get_hand_value(hand)
+  end
+
+  def display_hand_value(hand)
+    @output.puts " Your hand value is: " + hand.to_s
   end
 
   def return_score(hand_value)
