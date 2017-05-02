@@ -32,8 +32,8 @@ class Dealer
 	def get_final_hand_value(hand, hand_value)
 		until Hand.new.is_out?(hand_value)
 			p get_hand_value(hand)
-			CommandlineIO.new.ask_hit_or_stop
-			if CommandlineIO.new.get_hit_or_stop == "stop" || hand_value.to_i > 21
+			@io.ask_hit_or_stop
+			if @io.get_hit_or_stop == "stop" || hand_value.to_i >= 21
 				return hand_value
 			else
 				p hand += give_new_card
@@ -44,22 +44,23 @@ class Dealer
 	end
 
 	def dealer_game_flow
-		CommandlineIO.new.ask_how_many_players
-		if CommandlineIO.new.get_num_of_players == 1
+		@io.ask_how_many_players
+		if @io.get_num_of_players == 1
 			p player_one_hand = Player.new.get_initial_hand
 			player_one_hand_value = get_hand_value(player_one_hand)
       player_one_final_hand = get_final_hand_value(player_one_hand, player_one_hand_value)
-			CommandlineIO.new.return_score(player_one_final_hand)
+			@io.return_score(player_one_final_hand)
     else
 			p player_one_hand = Player.new.get_initial_hand
 			p player_two_hand = Player.new.get_initial_hand
 			player_one_hand_value = get_hand_value(player_one_hand)
 			player_one_final_hand = get_final_hand_value(player_one_hand, player_one_hand_value)
-			return_score(player_one_final_hand)
+			@io.return_score(player_one_final_hand)
 
 			player_two_hand_value = get_hand_value(player_two_hand)
 			player_two_final_hand = get_final_hand_value(player_two_hand, player_two_hand_value)
-			CommandlineIO.new.return_score(player_two_final_hand)
+			@io.return_score(player_two_final_hand)
+			p Hand.new.find_winner(player_one_final_hand, player_two_final_hand)
 		end
 	end
 
