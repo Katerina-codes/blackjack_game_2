@@ -20,6 +20,10 @@ class CommandlineIO
     num_of_players
   end
 
+  def display_initial_hand(initial_hand)
+		@output.print initial_hand
+	end
+
   def ask_hit_or_stop
     @output.puts "Do you want to hit or stop?"
   end

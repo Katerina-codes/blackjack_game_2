@@ -42,13 +42,16 @@ class Dealer
 	def dealer_game_flow
 		@io.ask_how_many_players
 		if @io.get_num_of_players == 1
-			p player_one_hand = Player.new.get_initial_hand
+			player_one_hand = Player.new.get_initial_hand
+			@io.display_initial_hand(player_one_hand)
 			player_one_hand_value = @io.get_hand_value(player_one_hand)
       player_one_final_hand = get_final_hand_value(player_one_hand, player_one_hand_value)
 			@io.return_score(player_one_final_hand)
     else
-			p player_one_hand = Player.new.get_initial_hand
-			p player_two_hand = Player.new.get_initial_hand
+			player_one_hand = Player.new.get_initial_hand
+			@io.display_initial_hand(player_one_hand)
+			player_two_hand = Player.new.get_initial_hand
+			@io.display_initial_hand(player_two_hand)
 			player_one_hand_value = @io.get_hand_value(player_one_hand)
 			player_one_final_hand = get_final_hand_value(player_one_hand, player_one_hand_value)
 			@io.return_score(player_one_final_hand)
@@ -56,7 +59,7 @@ class Dealer
 			player_two_hand_value = @io.get_hand_value(player_two_hand)
 			player_two_final_hand = get_final_hand_value(player_two_hand, player_two_hand_value)
 			@io.return_score(player_two_final_hand)
-			p Hand.new.find_winner(player_one_final_hand, player_two_final_hand)
+			# p Hand.new.find_winner(player_one_final_hand, player_two_final_hand)
 		end
 	end
 
