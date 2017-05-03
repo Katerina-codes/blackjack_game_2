@@ -4,5 +4,5 @@ require_relative 'lib/hand'
 require_relative 'lib/player'
 
 
-x = Dealer.new
-x.dealer_game_flow
+new_game = Dealer.new
+new_game.dealer_game_flow
