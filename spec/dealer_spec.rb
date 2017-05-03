@@ -14,4 +14,9 @@ describe Dealer do
 		expect(dealer.hand_plus_new_card(["AH", "2D"], ["3C"])).to eq(["AH", "2D", "3C"])
 	end
 
+	it "returns the current hand plus new card 4D" do
+		dealer = Dealer.new
+		expect(dealer.hand_plus_new_card(["AH", "2D"], ["4D"])).to eq(["AH", "2D", "4D"])
+	end
+
 end
