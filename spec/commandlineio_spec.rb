@@ -1,4 +1,4 @@
-require 'commandlineio' 
+require 'commandlineio'
 
 describe CommandlineIO do
 
@@ -50,6 +50,13 @@ describe CommandlineIO do
     input = StringIO.new("2")
     commandlineio = CommandlineIO.new(output, input)
     expect(commandlineio.get_num_of_players).to eq(2)
+  end
+
+  it "displays the current hand plus new card" do
+    output = StringIO.new
+  	commandlineio = CommandlineIO.new(output)
+    commandlineio.display_hand_plus_new_card('["AH", "2D", "3C"]')
+  	expect(output.string).to eq('["AH", "2D", "3C"]')
   end
 
 end

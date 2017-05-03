@@ -45,6 +45,10 @@ class CommandlineIO
     @output.puts " Your hand value is: " + hand.to_s
   end
 
+  def display_hand_plus_new_card(hand_with_new_card)
+    @output.print hand_with_new_card
+  end
+
   def return_score(hand_value)
     @output.puts "Game over and your score is: " + hand_value.to_s
   end
