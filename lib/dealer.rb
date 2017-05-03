@@ -26,11 +26,7 @@ class Dealer
   end
 
 	def hand_plus_new_card(hand, new_card)
-		if new_card == ["3C"]
-		  ["AH", "2D", "3C"]
-		else
-			["AH", "2D", "4D"]
-		end
+		hand += new_card
 	end
 
 	def get_final_hand_value(hand, hand_value)
