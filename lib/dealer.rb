@@ -9,7 +9,7 @@ class Dealer
 	end
 
 	def give_new_card
-		card_values = ("1".."10").to_a + ["J", "Q", "K", "A"]
+		card_values = ("2".."10").to_a + ["J", "Q", "K", "A"]
 		card_type = ["C", "D", "H", "S"]
 		new_card = [card_values.sample + card_type.sample]
 	end
