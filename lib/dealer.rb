@@ -35,8 +35,10 @@ class Dealer
 			if @io.get_hit_or_stop == "stop" || hand_value.to_i >= 21
 				return hand_value.to_i
 			else
-				p hand += give_new_card
-				hand_value = BlackjackScore.new.get_hand_value(hand)
+				new_card = give_new_card
+				hand_with_new_card = hand_plus_new_card(hand, new_card)
+				@io.display_hand_plus_new_card(hand_with_new_card)
+				hand_value = BlackjackScore.new.get_hand_value(hand_with_new_card)
 				@io.display_hand_value(hand_value)
 			end
 		end
