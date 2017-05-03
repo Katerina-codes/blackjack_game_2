@@ -9,7 +9,7 @@ describe Dealer do
 		expect(dealer.determine_number_of_players).to eq(1)
 	end
 
-	it "returns the current hand plus new card" do
+	it "returns the current hand plus new card '3C'" do
 		dealer = Dealer.new
 		expect(dealer.hand_plus_new_card(["AH", "2D"], ["3C"])).to eq(["AH", "2D", "3C"])
 	end
