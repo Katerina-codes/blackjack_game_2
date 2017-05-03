@@ -25,10 +25,6 @@ class Dealer
 		hand = card1 + card2
   end
 
-	def hand_plus_new_card(hand, new_card)
-		hand += new_card
-	end
-
   def get_final_hand_value(hand, hand_value)
 		until Hand.new.is_out?(hand_value)
 		  @io.ask_hit_or_stop
