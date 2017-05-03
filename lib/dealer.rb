@@ -29,21 +29,20 @@ class Dealer
 		hand += new_card
 	end
 
-	def get_final_hand_value(hand, hand_value)
+  def get_final_hand_value(hand, hand_value)
 		until Hand.new.is_out?(hand_value)
-			@io.ask_hit_or_stop
+		  @io.ask_hit_or_stop
 			if @io.get_hit_or_stop == "stop" || hand_value.to_i >= 21
 				return hand_value.to_i
 			else
-				new_card = give_new_card
-				hand_with_new_card = hand_plus_new_card(hand, new_card)
+				hand_with_new_card = hand += give_new_card
 				@io.display_hand_plus_new_card(hand_with_new_card)
 				hand_value = BlackjackScore.new.get_hand_value(hand_with_new_card)
 				@io.display_hand_value(hand_value)
 			end
 		end
 		hand_value
-	end
+  end
 
 	def dealer_game_flow
 		@io.ask_how_many_players
