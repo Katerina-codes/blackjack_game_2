@@ -52,9 +52,13 @@ class Dealer
 			player_one_hand = Player.new.get_initial_hand
 			@io.display_initial_hand(player_one_hand)
 			player_one_hand_value = @io.get_hand_value(player_one_hand)
+			@io.display_hand_value(player_one_hand_value)
 
 			player_two_hand = Player.new.get_initial_hand
 			@io.display_initial_hand(player_two_hand)
+			player_two_hand_value = @io.get_hand_value(player_two_hand)
+			@io.display_hand_value(player_two_hand_value)
+
 			player_two_hand_value = @io.get_hand_value(player_two_hand)
 			player_one_final_hand = get_final_hand_value(player_one_hand, player_one_hand_value)
 			@io.return_score(player_one_final_hand)
