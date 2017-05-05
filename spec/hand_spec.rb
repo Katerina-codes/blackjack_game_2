@@ -44,7 +44,6 @@ describe Hand do
  		expect(hand.find_winner(0, 21)).to eq("Player two is the winner!")
  	 end
 
-
 # 	it "returns winner if hand2 > hand1" do
 # 		hand = Hand.new
 # 		expect(hand.find_winner(1, 0)).to eq("Player two is the winner!")
