@@ -25,7 +25,9 @@ class Dealer
 		hand = card1 + card2
   end
 
-  def get_final_hand_value(hand, hand_value)
+  def get_final_hand_value(hand)
+		hand_value = BlackjackScore.new.get_hand_value(hand)
+
 		until Hand.new.is_out?(hand_value)
 		  @io.ask_hit_or_stop
 			if @io.get_hit_or_stop == "stop" || hand_value.to_i >= 21
@@ -40,35 +42,35 @@ class Dealer
 		hand_value
   end
 
-	def dealer_game_flow
-		@io.ask_how_many_players
-		if @io.get_num_of_players == 1
-			player_one_hand = Player.new.get_initial_hand
-			@io.display_initial_hand(player_one_hand)
-			player_one_hand_value = @io.get_hand_value(player_one_hand)
-			@io.display_hand_value(player_one_hand_value)
-      player_one_final_hand = get_final_hand_value(player_one_hand, player_one_hand_value)
-			@io.return_score(player_one_final_hand)
-    else
-			player_one_hand = Player.new.get_initial_hand
-			@io.display_initial_hand(player_one_hand)
-			player_one_hand_value = @io.get_hand_value(player_one_hand)
-			@io.display_hand_value(player_one_hand_value)
-
-			player_two_hand = Player.new.get_initial_hand
-			@io.display_initial_hand(player_two_hand)
-			player_two_hand_value = @io.get_hand_value(player_two_hand)
-			@io.display_hand_value(player_two_hand_value)
-
-			player_two_hand_value = @io.get_hand_value(player_two_hand)
-			player_one_final_hand = get_final_hand_value(player_one_hand, player_one_hand_value)
-			@io.return_score(player_one_final_hand)
-
-			player_two_hand_value = @io.get_hand_value(player_two_hand)
-			player_two_final_hand = get_final_hand_value(player_two_hand, player_two_hand_value)
-			@io.return_score(player_two_final_hand)
-			# p Hand.new.find_winner(player_one_final_hand, player_two_final_hand)
-		end
-	end
+	# def dealer_game_flow
+	# 	@io.ask_how_many_players
+	# 	if @io.get_num_of_players == 1
+	# 		player_one_hand = Player.new.get_initial_hand
+	# 		@io.display_initial_hand(player_one_hand)
+	# 		player_one_hand_value = @io.get_hand_value(player_one_hand)
+	# 		@io.display_hand_value(player_one_hand_value)
+  #     player_one_final_hand = get_final_hand_value(player_one_hand, player_one_hand_value)
+	# 		@io.return_score(player_one_final_hand)
+  #   else
+	# 		player_one_hand = Player.new.get_initial_hand
+	# 		@io.display_initial_hand(player_one_hand)
+	# 		player_one_hand_value = @io.get_hand_value(player_one_hand)
+	# 		@io.display_hand_value(player_one_hand_value)
+	#
+	# 		player_two_hand = Player.new.get_initial_hand
+	# 		@io.display_initial_hand(player_two_hand)
+	# 		player_two_hand_value = @io.get_hand_value(player_two_hand)
+	# 		@io.display_hand_value(player_two_hand_value)
+	#
+	# 		player_two_hand_value = @io.get_hand_value(player_two_hand)
+	# 		player_one_final_hand = get_final_hand_value(player_one_hand, player_one_hand_value)
+	# 		@io.return_score(player_one_final_hand)
+	#
+	# 		player_two_hand_value = @io.get_hand_value(player_two_hand)
+	# 		player_two_final_hand = get_final_hand_value(player_two_hand, player_two_hand_value)
+	# 		@io.return_score(player_two_final_hand)
+	# 		# p Hand.new.find_winner(player_one_final_hand, player_two_final_hand)
+	# 	end
+	# end
 
 end
