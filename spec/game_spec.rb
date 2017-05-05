@@ -1,6 +1,6 @@
 require 'game'
 
-subject(:game) {described_class.new}
+# subject(:game) {described_class.new}
 
 describe Game do
 
