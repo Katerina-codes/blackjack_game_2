@@ -2,7 +2,6 @@ require_relative "blackjack_score"
 
 class CommandlineIO
 
-
   def initialize(output = $stdout, input = $stdin)
     @output = output
     @input = input

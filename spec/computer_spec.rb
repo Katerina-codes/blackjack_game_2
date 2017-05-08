@@ -9,7 +9,7 @@ describe Computer do
     expect(computer_player.play_move).to eq("hit")
   end
 
-  it "defaults to a set of moves when not passed any moves" do
+  it "defaults to a set of moves when it's not passed any moves" do
     expect(subject.play_move).to satisfy { |value_returned| value_returned == "hit" || value_returned == "stop" }
   end
 
