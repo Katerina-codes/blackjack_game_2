@@ -9,7 +9,7 @@ describe Computer do
   end
 
   it "returns stop" do
-    expect(subject.play_move(["stop", "hit"])).to eq("stop")
+    expect(subject.play_move(["stop", "hit"])).to satisfy { |value_returned| value_returned == "hit" || value_returned == "stop" }
   end
 
 end
