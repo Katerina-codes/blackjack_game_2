@@ -8,7 +8,7 @@ class CommandlineIO
   end
 
   def ask_how_many_players
-    @output.puts "1 or 2 player?"
+    @output.puts "1 player, 2 player or play against computer?\n"
   end
 
   def get_num_of_players

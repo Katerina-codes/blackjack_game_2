@@ -27,7 +27,7 @@ describe CommandlineIO do
     output = StringIO.new
     commandlineio = CommandlineIO.new(output)
     commandlineio.ask_how_many_players
-    expect(output.string).to eq("1 or 2 player?\n")
+    expect(output.string).to eq("1 player, 2 player or play against computer?\n")
   end
 
   it "displays an error message if user enters 0" do
