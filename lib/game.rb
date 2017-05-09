@@ -6,11 +6,15 @@ require_relative "computer"
 
 class Game
 
-  def initial_hand
-    @io = CommandlineIO.new
-    @dealer = Dealer.new
-    @blackjack_score = BlackjackScore.new
+  def initialize(io, dealer, blackjack_score, player, hand)
+    @io = io
+    @dealer = dealer
+    @blackjack_score = blackjack_score
+    @player = player
+    @hand = hand
+  end
 
+  def initial_hand
     player_hand = @dealer.deal_initial_hand
     @io.display_initial_hand(player_hand)
     hand_value = @blackjack_score.get_hand_value(player_hand)
@@ -19,19 +23,12 @@ class Game
   end
 
   def hand_played_until_end(player_hand, player_type)
-    @io = CommandlineIO.new
-    @dealer = Dealer.new
-
     hand_played_until_end = @dealer.get_final_hand_value(player_hand, player_type)  # should hand or score be getting this?
     @io.return_score(hand_played_until_end)
     hand_played_until_end
   end
 
   def game_flow
-    @io = CommandlineIO.new
-    @hand = Hand.new
-    @player = Player.new
-
     @io.ask_how_many_players
     if @io.get_num_of_players == 1
       player_hand = initial_hand
