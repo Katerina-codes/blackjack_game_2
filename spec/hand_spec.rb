@@ -4,10 +4,10 @@ require 'hand'
 
 describe Hand do
 
-	# it "returns draw if hand1 == hand2" do
-	# 	hand = Hand.new
-	# 	expect(hand.find_winner(0, 0)).to eq("It's a draw!")
-	# end
+	it "returns draw if hand1 == hand2" do
+		hand = Hand.new
+		expect(hand.find_winner(0, 0)).to eq("It's a draw!")
+	end
 
 	it "returns winner if hand1 > hand2 and hands are < 21" do
 		hand = Hand.new

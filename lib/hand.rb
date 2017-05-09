@@ -3,6 +3,8 @@ class Hand
 	def find_winner(hand1, hand2)
 		if hand1 > 21 && hand2 > 21
 			"Both hands are bust!"
+		elsif hand1 == hand2
+			"It's a draw!"
 		elsif hand1 == 21
 			"Player one is the winner!"
 		elsif hand2 == 21
