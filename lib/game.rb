@@ -2,6 +2,7 @@ require_relative "commandlineio"
 require_relative "dealer"
 require_relative "blackjack_score"
 require_relative "hand"
+require_relative "computer"
 
 class Game
 
@@ -17,11 +18,11 @@ class Game
     player_hand
   end
 
-  def hand_played_until_end(player_hand)
+  def hand_played_until_end(player_hand, player_type)
     @io = CommandlineIO.new
     @dealer = Dealer.new
 
-    hand_played_until_end = @dealer.get_final_hand_value(player_hand)  # should hand or score be getting this?
+    hand_played_until_end = @dealer.get_final_hand_value(player_hand, player_type)  # should hand or score be getting this?
     @io.return_score(hand_played_until_end)
     hand_played_until_end
   end
@@ -29,17 +30,28 @@ class Game
   def game_flow
     @io = CommandlineIO.new
     @hand = Hand.new
+    @player = Player.new
 
     @io.ask_how_many_players
     if @io.get_num_of_players == 1
       player_hand = initial_hand
       hand_played_until_end(player_hand)
-    else
+    elsif @io.get_num_of_players == 2
       player_one_hand = initial_hand
       player_two_hand = initial_hand
-      player_one_hand_result = hand_played_until_end(player_one_hand)
+      player_type = Player.new
+      player_one_hand_result = hand_played_until_end(player_one_hand, player_type)
       print "Player two: "
-      player_two_hand_result = hand_played_until_end(player_two_hand)
+      player_two_hand_result = hand_played_until_end(player_two_hand, player_type)
+      p @hand.find_winner(player_one_hand_result, player_two_hand_result)
+    else
+      player_one_hand = initial_hand
+      computer_player_hand = initial_hand
+      player_type = Player.new
+      player_one_hand_result = hand_played_until_end(player_one_hand, player_type)
+      print "Player two: "
+      player_type = Computer.new
+      player_two_hand_result = hand_played_until_end(computer_player_hand, player_type)
       p @hand.find_winner(player_one_hand_result, player_two_hand_result)
     end
   end

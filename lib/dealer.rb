@@ -1,6 +1,7 @@
 require_relative 'blackjack_score'
 require_relative 'hand'
 require_relative 'commandlineio'
+require_relative 'player'
 
 class Dealer
 
@@ -25,12 +26,12 @@ class Dealer
 		hand = card1 + card2
   end
 
-  def get_final_hand_value(hand)
+  def get_final_hand_value(hand, player_type)
 		hand_value = BlackjackScore.new.get_hand_value(hand)
 
 		until Hand.new.is_out?(hand_value)
 		  @io.ask_hit_or_stop
-			if @io.get_hit_or_stop == "stop" || hand_value.to_i >= 21
+			if player_type.play_move == "stop" || hand_value.to_i >= 21
 				return hand_value.to_i
 			else
 				hand_with_new_card = hand += give_new_card
