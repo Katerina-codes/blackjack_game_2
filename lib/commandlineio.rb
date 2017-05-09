@@ -14,7 +14,7 @@ class CommandlineIO
   def get_num_of_players
     num_of_players = @input.gets.chomp.to_i
     until num_of_players == 1 || num_of_players == 2
-      @output.puts "Please enter 1 or 2"
+      @output.puts "Please enter '1', '2' or '3'"
       num_of_players = @input.gets.chomp.to_i
     end
     num_of_players

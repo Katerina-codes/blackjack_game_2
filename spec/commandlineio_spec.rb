@@ -35,7 +35,7 @@ describe CommandlineIO do
     input = StringIO.new("0\n1")
     commandlineio = CommandlineIO.new(output, input)
     commandlineio.get_num_of_players
-    expect(output.string).to eq("Please enter 1 or 2\n")
+    expect(output.string).to eq("Please enter '1', '2' or '3'\n")
   end
 
   it "gets 1 from the user" do
