@@ -9,4 +9,9 @@ describe Player do
  #   expect(output.string).to eq("[1D, 1D]")
  # end
 
+ it "stores next user move" do
+   player = Player.new
+   expect(player.next_move).to satisfy {|value_returned| value_returned == "hit" || value_returned == "stop" }
+ end
+
 end
