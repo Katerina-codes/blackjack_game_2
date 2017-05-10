@@ -2,6 +2,8 @@ require 'commandlineio'
 
 describe CommandlineIO do
 
+  subject(:commandlineio) { described_class.new }
+
   it "ask if user wants to hit or stop" do
     output = StringIO.new
     commandlineio = CommandlineIO.new(output)
@@ -23,7 +25,7 @@ describe CommandlineIO do
     expect(output.string).to eq("Game over and your score is: 10\n")
   end
 
-  it "displays '1 or 2 player?'" do
+  it "displays '1, 2 player or computer?'" do
     output = StringIO.new
     commandlineio = CommandlineIO.new(output)
     commandlineio.ask_how_many_players
