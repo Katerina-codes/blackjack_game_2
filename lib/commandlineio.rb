@@ -49,4 +49,8 @@ class CommandlineIO
     @output.puts "Game over and your score is: " + hand_value.to_s
   end
 
+  def display_winner(winner)
+    @output.print winner
+  end
+
 end

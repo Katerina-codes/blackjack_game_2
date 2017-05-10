@@ -61,4 +61,11 @@ describe CommandlineIO do
   	expect(output.string).to eq('["AH", "2D", "3C"]')
   end
 
+  it "displays the winner" do
+    output = StringIO.new
+    commandlineio = CommandlineIO.new(output)
+    commandlineio.display_winner("Player one is the winner!")
+    expect(output.string).to eq("Player one is the winner!")
+  end
+
 end
