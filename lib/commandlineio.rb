@@ -50,7 +50,7 @@ class CommandlineIO
   end
 
   def display_winner(winner)
-    @output.print winner
+    @output.puts winner
   end
 
 end

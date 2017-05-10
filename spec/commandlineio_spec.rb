@@ -65,7 +65,7 @@ describe CommandlineIO do
     output = StringIO.new
     commandlineio = CommandlineIO.new(output)
     commandlineio.display_winner("Player one is the winner!")
-    expect(output.string).to eq("Player one is the winner!")
+    expect(output.string).to eq("Player one is the winner!\n")
   end
 
 end
