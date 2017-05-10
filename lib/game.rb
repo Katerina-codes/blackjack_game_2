@@ -30,11 +30,13 @@ class Game
 
   def game_flow
     @io.ask_how_many_players
-    if @io.get_num_of_players == 1
+    players = @io.get_num_of_players
+
+    if players == 1
       player_hand = initial_hand
       player_type = Player.new
       hand_played_until_end(player_hand, player_type)
-    elsif @io.get_num_of_players == 2
+    elsif players == 2
       player_one_hand = initial_hand
       player_two_hand = initial_hand
       player_type = Player.new
