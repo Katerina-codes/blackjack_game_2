@@ -14,7 +14,7 @@ class Game
     @hand = hand
   end
 
-  def initial_hand
+  def deal_initial_hand
     player_hand = @dealer.deal_initial_hand
     @io.display_initial_hand(player_hand)
     hand_value = @blackjack_score.get_hand_value(player_hand)
@@ -23,7 +23,7 @@ class Game
   end
 
   def hand_played_until_end(player_hand, player_type)
-    hand_played_until_end = @dealer.get_final_hand_value(player_hand, player_type)  # should hand or score be getting this?
+    hand_played_until_end = @dealer.get_final_hand_value(player_hand, player_type)
     @io.return_score(hand_played_until_end)
     hand_played_until_end
   end
@@ -33,12 +33,12 @@ class Game
     players = @io.get_num_of_players
 
     if players == 1
-      player_hand = initial_hand
+      player_hand = deal_initial_hand
       player_type = Player.new
       hand_played_until_end(player_hand, player_type)
     elsif players == 2
-      player_one_hand = initial_hand
-      player_two_hand = initial_hand
+      player_one_hand = deal_initial_hand
+      player_two_hand = deal_initial_hand
       player_type = Player.new
       print "Player one: "
       player_one_hand_result = hand_played_until_end(player_one_hand, player_type)
@@ -47,8 +47,8 @@ class Game
       winner = @hand.find_winner(player_one_hand_result, player_two_hand_result)
       @io.display_winner(winner)
     else
-      player_one_hand = initial_hand
-      computer_player_hand = initial_hand
+      player_one_hand = deal_initial_hand
+      computer_player_hand = deal_initial_hand
       player_type = Player.new
       print "Player one: "
       player_one_hand_result = hand_played_until_end(player_one_hand, player_type)
