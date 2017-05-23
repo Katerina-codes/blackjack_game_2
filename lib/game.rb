@@ -40,19 +40,23 @@ class Game
       player_one_hand = initial_hand
       player_two_hand = initial_hand
       player_type = Player.new
+      print "Player one: "
       player_one_hand_result = hand_played_until_end(player_one_hand, player_type)
       print "Player two: "
       player_two_hand_result = hand_played_until_end(player_two_hand, player_type)
-      p @hand.find_winner(player_one_hand_result, player_two_hand_result)
+      winner = @hand.find_winner(player_one_hand_result, player_two_hand_result)
+      @io.display_winner(winner)
     else
       player_one_hand = initial_hand
       computer_player_hand = initial_hand
       player_type = Player.new
+      print "Player one: "
       player_one_hand_result = hand_played_until_end(player_one_hand, player_type)
       print "Player two: "
       player_type = Computer.new
       player_two_hand_result = hand_played_until_end(computer_player_hand, player_type)
-      p @hand.find_winner(player_one_hand_result, player_two_hand_result)
+      winner = @hand.find_winner(player_one_hand_result, player_two_hand_result)
+      @io.display_winner(winner)
     end
   end
 
