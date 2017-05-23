@@ -1,55 +1,46 @@
 require_relative 'blackjack_score'
 require_relative 'hand'
+require_relative 'commandlineio'
+require_relative 'player'
 
 class Dealer
 
-	def initialize(output = $stdout, input = $stdin)
-		@output = output
-		@input = input
-	end
-
-	def ask_hit_or_stop
-		@output.puts "Do you want to hit or stop?"
-	end
-
-	def get_hit_or_stop
-		user_input = @input.gets.chomp.downcase
-		until user_input == "hit" || user_input == "stop"
-			puts "Please enter hit or stop: "
-			user_input = @input.gets.chomp.downcase
-		end
-		user_input
+	def initialize(io = CommandlineIO.new)
+		@io = io
 	end
 
 	def give_new_card
-		card_values = ("1".."10").to_a + ["J", "Q", "K", "A"]
+		card_values = ("2".."10").to_a + ["J", "Q", "K", "A"]
 		card_type = ["C", "D", "H", "S"]
 		new_card = [card_values.sample + card_type.sample]
-		new_card
 	end
 
-	def return_score(hand_value)
-		@output.puts "Game over and your score is: " + hand_value.to_s
+	def determine_number_of_players
+		@io.ask_how_many_players
+		@io.get_num_of_players
 	end
 
-	def dealer_game_flow
+	def deal_initial_hand
 		card1 = give_new_card
 		card2 = give_new_card
 		hand = card1 + card2
-		puts hand
+  end
+
+  def get_final_hand_value(hand, player_type)
 		hand_value = BlackjackScore.new.get_hand_value(hand)
 
 		until Hand.new.is_out?(hand_value)
-			puts "Your hand value is: " + hand_value.to_s
-			ask_hit_or_stop
-			if get_hit_or_stop == "stop" || hand_value > 21
-				return return_score(hand_value)
+		  @io.ask_hit_or_stop
+			if player_type.play_move == "stop" || hand_value.to_i >= 21
+				return hand_value.to_i
 			else
-				p hand += give_new_card
-				hand_value = BlackjackScore.new.get_hand_value(hand)
+				hand_with_new_card = hand += give_new_card
+				@io.display_hand_plus_new_card(hand_with_new_card)
+				hand_value = BlackjackScore.new.get_hand_value(hand_with_new_card)
+				@io.display_hand_value(hand_value)
 			end
 		end
-		return_score(hand_value)
-	end
+		hand_value
+  end
 
 end
